@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Restaurant List',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: new ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFE2E2B6),
       ),
       home: RestaurantListPage(),
       debugShowCheckedModeBanner: false, // This removes the debug banner
@@ -30,6 +30,7 @@ class RestaurantListPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Restaurant List'),
+        backgroundColor: Color(0xFF6EACDA),
       ),
       body: Column(
         children: [
@@ -37,6 +38,11 @@ class RestaurantListPage extends ConsumerWidget {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               onChanged: (value) => ref.read(searchQueryProvider.notifier).state = value,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+
+              ),
               decoration: InputDecoration(
                 labelText: 'Search',
                 border: OutlineInputBorder(),

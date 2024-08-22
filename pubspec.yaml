@@ -23,3 +23,8 @@ flutter:
 
   assets:
     - assets/restaurants.json
+
+fonts:
+  - family: CursiveFont
+    fonts:
+      - asset: assets/fonts/cursive_font.ttf
