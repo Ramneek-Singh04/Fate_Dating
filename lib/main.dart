@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Restaurant List',
-      theme: new ThemeData(
+      theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFE2E2B6),
       ),
       home: RestaurantListPage(),
@@ -29,7 +29,15 @@ class RestaurantListPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Restaurant List'),
+        title: Text(
+          'Restaurant List',
+          style: TextStyle(
+            color: Colors.white, // Change to your desired color
+            fontFamily: 'CursiveFont', // Use your custom cursive font
+            fontWeight: FontWeight.bold, // Makes the text bold
+            fontSize: 20, // Adjust font size if needed
+          ),
+        ),
         backgroundColor: Color(0xFF6EACDA),
       ),
       body: Column(
@@ -41,7 +49,6 @@ class RestaurantListPage extends ConsumerWidget {
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
-
               ),
               decoration: InputDecoration(
                 labelText: 'Search',
@@ -59,8 +66,15 @@ class RestaurantListPage extends ConsumerWidget {
                 return ListView.builder(
                   itemCount: filteredRestaurants.length,
                   itemBuilder: (context, index) {
+                    final restaurant = filteredRestaurants[index];
                     return ListTile(
-                      title: Text(filteredRestaurants[index].name),
+                      title: Text(
+                        '${restaurant.name} (${restaurant.cuisine})',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                     );
                   },
                 );
